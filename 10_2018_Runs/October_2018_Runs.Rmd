@@ -1,0 +1,256 @@
+---
+title: "October_2018_Runs"
+author: "Grant Adams"
+date: "October 29, 2018"
+output: html_document
+---
+
+```{r HumpbackSIR, echo=FALSE}
+# Load data
+source("InputData_HWAssessment_InitialAssessments_Oct2018.R")
+```
+
+
+```{r HumpbackSIR, echo=FALSE}
+# Reference
+
+sir_base <- HUMPBACK.SIR(file_name = "Reference/reference",
+                     n_resamples = 10000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Pavanato,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 4e-9, progress_bar = TRUE))
+resample_summary_base <- summary_sir(sir_base$resamples_output, object = "Resample_Summary", file_name = "Reference/Scenario__base")
+resample_summary_base$output_summary[,1:2]
+trajectory_summary_base <- summary_sir(sir_base$resamples_trajectories, object = "Trajectory_Summary", file_name = "Reference/Scenario__base")
+plot_sir(sir_base,  file_name = "Reference/Scenario__base")
+# zerbini_table( resample_summary_base, file_name = "Reference/Scenario__base" )
+```
+
+################################################################################
+# SDATA Runs
+################################################################################
+```{r HumpbackSIR, echo=FALSE}
+# SData 1
+
+sir_sdata_1 <- HUMPBACK.SIR(file_name = "SData 1/SData 1",
+                     n_resamples = 10000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2012,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Pavanato,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 4e-9, progress_bar = TRUE))
+resample_summary_sdata_1 <- summary_sir(sir_sdata_1$resamples_output, object = "Resample_Summary", file_name = "SData 1/SData 1")
+trajectory_summary_sdata_1 <- summary_sir(sir_sdata_1$resamples_trajectories, object = "Trajectory_Summary", file_name = "SData 1/SData 1")
+plot_sir(sir_sdata_1,  file_name = "SData 1/SData 1")
+# zerbini_table( resample_summary_sdata_1, file_name = "Reference/Scenario__sdata_1" )
+```
+
+```{r HumpbackSIR, echo=FALSE}
+# SData 2
+sir_sdata_2 <- HUMPBACK.SIR(file_name = "SData 2/SData 2",
+                     n_resamples = 10000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Pavanato,
+                     rel.abundance.key = TRUE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-18, progress_bar = TRUE))
+resample_summary_sdata_2 <- summary_sir(sir_sdata_2$resamples_output, object = "Resample_Summary", file_name = "SData 2/SData 2")
+trajectory_summary_sdata_2 <- summary_sir(sir_sdata_2$resamples_trajectories, object = "Trajectory_Summary", file_name = "SData 2/SData 2")
+plot_sir(sir_sdata_2,  file_name = "SData 2/SData 2")
+# zerbini_table( resample_summary_sdata_2, file_name = "Reference/Scenario__sdata_2" )
+```
+
+```{r HumpbackSIR, echo=FALSE}
+# SData 3
+
+sir_sdata_3 <- HUMPBACK.SIR(file_name = "SData 3/SData 3",
+                     n_resamples = 1000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Wedekin,
+                     rel.abundance.key = TRUE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-27, progress_bar = TRUE))
+resample_summary_sdata_3 <- summary_sir(sir_sdata_3$resamples_output, object = "Resample_Summary", file_name = "SData 3/SData 3")
+trajectory_summary_sdata_3 <- summary_sir(sir_sdata_3$resamples_trajectories, object = "Trajectory_Summary", file_name = "SData 3/SData 3")
+plot_sir(sir_sdata_3,  file_name = "SData 3/SData 3")
+# zerbini_table( resample_summary_sdata_3, file_name = "Reference/Scenario__sdata_3" )
+```
+
+################################################################################
+# SCATCH Runs
+################################################################################
+```{r HumpbackSIR, echo=FALSE}
+# SCatch 1
+
+sir_scatch_1 <- HUMPBACK.SIR(file_name = "SCatch 1/SCatch 1",
+                     n_resamples = 1000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Wedekin,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-27, progress_bar = TRUE))
+resample_summary_scatch_1 <- summary_sir(sir_scatch_1$resamples_output, object = "Resample_Summary", file_name = "SCatch 1/SCatch 1")
+trajectory_summary_scatch_1 <- summary_sir(sir_scatch_1$resamples_trajectories, object = "Trajectory_Summary", file_name = "SCatch 1/SCatch 1")
+plot_sir(sir_scatch_1,  file_name = "SCatch 1/SCatch 1")
+# zerbini_table( resample_summary_scatch_1, file_name = "Reference/Scenario__scatch_1" )
+```
+
+
+```{r HumpbackSIR, echo=FALSE}
+# SCatch 2
+
+sir_scatch_2 <- HUMPBACK.SIR(file_name = "SCatch 2/SCatch 2",
+                     n_resamples = 1000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Wedekin,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-27, progress_bar = TRUE))
+resample_summary_scatch_2 <- summary_sir(sir_scatch_2$resamples_output, object = "Resample_Summary", file_name = "SCatch 2/SCatch 2")
+trajectory_summary_scatch_2 <- summary_sir(sir_scatch_2$resamples_trajectories, object = "Trajectory_Summary", file_name = "SCatch 2/SCatch 2")
+plot_sir(sir_scatch_2,  file_name = "SCatch 2/SCatch 2")
+# zerbini_table( resample_summary_scatch_2, file_name = "Reference/Scenario__scatch_2" )
+```
+
+
+```{r HumpbackSIR, echo=FALSE}
+# SCatch 3
+
+sir_scatch_3 <- HUMPBACK.SIR(file_name = "SCatch 3/SCatch 3",
+                     n_resamples = 1000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Wedekin,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-27, progress_bar = TRUE))
+resample_summary_scatch_3 <- summary_sir(sir_scatch_3$resamples_output, object = "Resample_Summary", file_name = "SCatch 3/SCatch 3")
+trajectory_summary_scatch_3 <- summary_sir(sir_scatch_3$resamples_trajectories, object = "Trajectory_Summary", file_name = "SCatch 3/SCatch 3")
+plot_sir(sir_scatch_3,  file_name = "SCatch 3/SCatch 3")
+# zerbini_table( resample_summary_scatch_3, file_name = "Reference/Scenario__scatch_3" )
+```
+
+
+```{r HumpbackSIR, echo=FALSE}
+# SCatch 4
+
+sir_scatch_4 <- HUMPBACK.SIR(file_name = "SCatch 4/SCatch 4",
+                     n_resamples = 1000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Wedekin,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-27, progress_bar = TRUE))
+resample_summary_scatch_4 <- summary_sir(sir_scatch_4$resamples_output, object = "Resample_Summary", file_name = "SCatch 4/SCatch 4")
+trajectory_summary_scatch_4 <- summary_sir(sir_scatch_4$resamples_trajectories, object = "Trajectory_Summary", file_name = "SCatch 4/SCatch 4")
+plot_sir(sir_scatch_4,  file_name = "SCatch 4/SCatch 4")
+# zerbini_table( resample_summary_scatch_4, file_name = "Reference/Scenario__scatch_4" )
+```
+
+
+```{r HumpbackSIR, echo=FALSE}
+# SCatch 5
+
+sir_scatch_5 <- HUMPBACK.SIR(file_name = "SCatch 5/SCatch 5",
+                     n_resamples = 1000,
+                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
+                                              N_obs = make_prior(runif, 500, 40000)),
+                     catch_multipliers = make_multiplier_list(make_prior(1)),
+                     target.Yr = 2008,
+                     num.haplotypes = 0,
+                     output.Yrs = c(2017),
+                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
+                     rel.abundance = Rel.Abundance.Wedekin,
+                     rel.abundance.key = FALSE, # No indices of abundance
+                     count.data = Count.Data,
+                     count.data.key = FALSE,
+                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
+                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
+                     catch.data = Core.Catches,
+                     control = sir_control(threshold = 2e-27, progress_bar = TRUE))
+resample_summary_scatch_5 <- summary_sir(sir_scatch_5$resamples_output, object = "Resample_Summary", file_name = "SCatch 5/SCatch 5")
+trajectory_summary_scatch_5 <- summary_sir(sir_scatch_5$resamples_trajectories, object = "Trajectory_Summary", file_name = "SCatch 5/SCatch 5")
+plot_sir(sir_scatch_5,  file_name = "SCatch 5/SCatch 5")
+# zerbini_table( resample_summary_scatch_5, file_name = "Reference/Scenario__scatch_5" )
+```
