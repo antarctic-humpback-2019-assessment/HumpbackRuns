@@ -11,7 +11,7 @@ sir_base <- HUMPBACK.SIR(file_name = "Reference/reference",
                          catch_multipliers = make_multiplier_list(make_prior(1)),
                          target.Yr = 2008,
                          num.haplotypes = 0,
-                         output.Yrs = c(2017),
+                         output.Yrs = c(2018),
                          abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                          rel.abundance = Rel.Abundance.Pavanato,
                          rel.abundance.key = FALSE, # No indices of abundance
@@ -44,7 +44,7 @@ sir_sdata_1 <- HUMPBACK.SIR(file_name = "SData 1/SData 1",
                             premodern_catch_multipliers = make_multiplier_list(make_prior(1)),
                             target.Yr = 2012,
                             num.haplotypes = 0,
-                            output.Yrs = c(2017),
+                            output.Yrs = c(2018),
                             abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                             rel.abundance = Rel.Abundance.Pavanato,
                             rel.abundance.key = FALSE, # No indices of abundance
@@ -71,7 +71,7 @@ sir_sdata_2 <- HUMPBACK.SIR(file_name = "SData 2/SData 2",
                             catch_multipliers = make_multiplier_list(make_prior(1)),
                             target.Yr = 2008,
                             num.haplotypes = 0,
-                            output.Yrs = c(2017),
+                            output.Yrs = c(2018),
                             abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                             rel.abundance = Rel.Abundance.Pavanato,
                             rel.abundance.key = TRUE, # No indices of abundance
@@ -99,7 +99,7 @@ sir_sdata_3 <- HUMPBACK.SIR(file_name = "SData 3/SData 3",
                             catch_multipliers = make_multiplier_list(make_prior(1)),
                             target.Yr = 2008,
                             num.haplotypes = 0,
-                            output.Yrs = c(2017),
+                            output.Yrs = c(2018),
                             abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                             rel.abundance = Rel.Abundance.Wedekin,
                             rel.abundance.key = TRUE, # No indices of abundance
@@ -117,6 +117,7 @@ plot_ioa(sir_sdata_3,  file_name = "SData 3/SData 3")
 save(sir_sdata_3, file = "SData 3/sir_sdata3.RData")
 zerbini_table(sir_sdata_3,  file_name = "SData 3/SData 3")
 
+plot_density(list(sir_base, sir_sdata_2, sir_sdata_3),  file_name = "Reference_vs_sdata1-3", multiple_sirs = TRUE)
 
 ################################################################################
 # SCATCH Runs
@@ -131,7 +132,7 @@ sir_scatch_1 <- HUMPBACK.SIR(file_name = "SCatch 1/SCatch 1",
                              premodern_catch_multipliers = make_multiplier_list(make_prior(1)),
                              target.Yr = 2008,
                              num.haplotypes = 0,
-                             output.Yrs = c(2017),
+                             output.Yrs = c(2018),
                              abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                              rel.abundance = Rel.Abundance.Wedekin,
                              rel.abundance.key = FALSE, # No indices of abundance
@@ -161,7 +162,7 @@ sir_scatch_2 <- HUMPBACK.SIR(file_name = "SCatch 2/SCatch 2",
                              premodern_catch_multipliers = make_multiplier_list(make_prior(1)),
                              target.Yr = 2008,
                              num.haplotypes = 0,
-                             output.Yrs = c(2017),
+                             output.Yrs = c(2018),
                              abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                              rel.abundance = Rel.Abundance.Wedekin,
                              rel.abundance.key = FALSE, # No indices of abundance
@@ -191,7 +192,7 @@ sir_scatch_3 <- HUMPBACK.SIR(file_name = "SCatch 3/SCatch 3",
                              premodern_catch_multipliers = make_multiplier_list(make_prior(1)),
                              target.Yr = 2008,
                              num.haplotypes = 0,
-                             output.Yrs = c(2017),
+                             output.Yrs = c(2018),
                              abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                              rel.abundance = Rel.Abundance.Wedekin,
                              rel.abundance.key = FALSE, # No indices of abundance
@@ -221,7 +222,7 @@ sir_scatch_4 <- HUMPBACK.SIR(file_name = "SCatch 4/SCatch 4",
                              premodern_catch_multipliers = make_multiplier_list(make_prior(1)),
                              target.Yr = 2008,
                              num.haplotypes = 0,
-                             output.Yrs = c(2017),
+                             output.Yrs = c(2018),
                              abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                              rel.abundance = Rel.Abundance.Wedekin,
                              rel.abundance.key = FALSE, # No indices of abundance
@@ -254,14 +255,14 @@ sir_scatch_5 <- HUMPBACK.SIR(file_name = "SCatch 5/SCatch 5",
                              priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                       N_obs = make_prior(runif, 500, 40000)),
                              catch_multipliers = make_multiplier_list(
-                               make_prior(1), #FIXME - Need to do with John
+                               make_prior(rbest, 0.139, 0.3),
                                make_prior(runif, 1.25, 1.42), 
                                make_prior(rnorm, 1.0185, 0.0028)),
                              premodern_catch_multipliers = make_multiplier_list(
                                make_prior(rnorm, 1.71, 0.073)),
                              target.Yr = 2008,
                              num.haplotypes = 0,
-                             output.Yrs = c(2017),
+                             output.Yrs = c(2018),
                              abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                              rel.abundance = Rel.Abundance.Wedekin,
                              rel.abundance.key = FALSE, # No indices of abundance
@@ -279,7 +280,7 @@ plot_density(sir_scatch_5,  file_name = "SCatch 5/SCatch 5")
 save(sir_scatch_1, file = "SCatch 5/sir_scatch5.RData")
 zerbini_table(sir_scatch_5,  file_name = "SCatch 5/SCatch 5")
 
-
+plot_density(list(sir_base, sir_scatch_1, sir_scatch_2, sir_scatch_3, sir_scatch_4, sir_scatch_5),  file_name = "Reference_vs_scatch1-5", multiple_sirs = T)
 
 ################################################################################
 # GENETIC Constraint Runs
@@ -294,7 +295,7 @@ sir_GC_1 <- HUMPBACK.SIR(file_name = "GC 1/GC 1",
                          premodern_catch_multipliers = make_multiplier_list(make_prior(1)),
                          target.Yr = 2008,
                          num.haplotypes = 66,
-                         output.Yrs = c(2017),
+                         output.Yrs = c(2018),
                          abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                          rel.abundance = Rel.Abundance.Wedekin,
                          rel.abundance.key = FALSE, # No indices of abundance
@@ -311,3 +312,4 @@ plot_trajectory(sir_GC_1,  file_name = "GC 1/GC 1")
 plot_density(sir_GC_1,  file_name = "GC 1/GC 1")
 save(sir_GC_1, file = "GC 1/sir_gc1.RData")
 zerbini_table(sir_GC_1,  file_name = "GC 1/GC 1")
+plot_density(list(sir_base, sir_GC_1),  file_name = "Reference_vs_sgc", multiple_sirs = T)
