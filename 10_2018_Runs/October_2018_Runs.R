@@ -277,7 +277,7 @@ resample_summary_scatch_5 <- summary_sir(sir_scatch_5$resamples_output, object =
 trajectory_summary_scatch_5 <- summary_sir(sir_scatch_5$resamples_trajectories, object = "Trajectory_Summary", file_name = "SCatch 5/SCatch 5")
 plot_trajectory(sir_scatch_5,  file_name = "SCatch 5/SCatch 5")
 plot_density(sir_scatch_5,  file_name = "SCatch 5/SCatch 5")
-save(sir_scatch_1, file = "SCatch 5/sir_scatch5.RData")
+save(sir_scatch_5, file = "SCatch 5/sir_scatch5.RData")
 zerbini_table(sir_scatch_5,  file_name = "SCatch 5/SCatch 5")
 
 plot_density(list(sir_base, sir_scatch_1, sir_scatch_2, sir_scatch_3, sir_scatch_4, sir_scatch_5),  file_name = "Reference_vs_scatch1-5", multiple_sirs = T)
