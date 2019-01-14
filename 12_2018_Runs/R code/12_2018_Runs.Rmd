@@ -1,0 +1,615 @@
+---
+title: "January Humpback Runs"
+author: "Grant Adams"
+date: "January 10, 2019"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r, echo = FALSE}
+vars <- c("r_max", "K", "Nmin", paste0("N", c(2008, 2012, 2018)), "Max_Dep", paste0("status", c(2008, 2012, 2018)))
+figure_paths <- paste0("global_posterior_comparison_",vars, ".png")
+
+```
+
+
+```{r, echo=FALSE, fig.cap = "Figure A1. Boxplots of estimated quantities"}
+fig_ind <- 1
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A2. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A3. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A4. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A5. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A6. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A7. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A8. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A9. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE, fig.cap = "Figure A10. Boxplots of estimated quantities"}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+# SDATA 1
+file_names <- c("Reference/Reference",
+                "SData 1/SData 1",
+                "SData 2/SData 2",
+                "SData 3/SData 3",
+                "SData 4/SData 4",
+                "SData 5/SData 5",
+                "SData 6/SData 6",
+                "SCatch 1/SCatch 1",
+                "SCatch 2/SCatch 2",
+                "SCatch 3/SCatch 3",
+                "SCatch 4/SCatch 4",
+                "SCatch 5/SCatch 5",
+                "GC 1/GC 1",
+                "GC 2/GC 2",
+                "MSYR 1/MSYR 1", 
+                "MSYR 2/MSYR 2")
+figure_types <- c("_trajectory_summary.png", "prior_trajectory_summary.png", "_posterior_density.png",  "_IOA_fit.png" )
+figure_paths <- c()
+for(i in 1:length(file_names)){
+  for(j in 1:length(figure_types)){
+    new_name <- paste0(file_names[i], figure_types[j])
+    if(file.exists(new_name)){
+      new_name = new_name
+    } else {
+      new_name = NULL
+    }
+    figure_paths <- c(figure_paths, new_name)
+  }
+}
+```
+
+$$$newpage
+
+# Reference
+```{r, echo = FALSE, fig.cap = "Figure 1. Population trajectory and fit of the model fit to the absolute abundance from the reference case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[1])
+```
+
+
+```{r, echo = FALSE, fig.cap = "Figure 2. Prior predictive check of population trajectory the model from the reference case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[2])
+```
+
+$$$newpage
+
+
+```{r, echo = FALSE, fig.cap = "Figure 3. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the reference case scenario. "}
+knitr::include_graphics(figure_paths[3])
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 4. Fit of the model fit from the reference scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance."}
+knitr::include_graphics(figure_paths[4])
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table_ind = 1
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 1. Population and parameter estimates from the model fit from the reference scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SData 1
+```{r, echo = FALSE, fig.cap = "Figure 5. Population trajectory and fit of the model fit to the absolute abundance from the SData 1 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+fig_ind = 5
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 6. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SData 1 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 7. Fit of the model fit from the SData 1 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 2. Population and parameter estimates from the model fit from the SData 1 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SData 2
+```{r, echo = FALSE, fig.cap = "Figure 8. Population trajectory and fit of the model fit to the absolute abundance from the SData 2 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 9. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SData 2 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 3. Population and parameter estimates from the model fit from the SData 2 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SData 3
+```{r, echo = FALSE, fig.cap = "Figure 10. Population trajectory and fit of the model fit to the absolute abundance from the SData 3 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 11. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SData 3 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 12. Fit of the model fit from the SData 3 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 4. Population and parameter estimates from the model fit from the SData 3 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SData 4
+```{r, echo = FALSE, fig.cap = "Figure 13. Population trajectory and fit of the model fit to the absolute abundance from the SData 4 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 14. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SData 4 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 15. Fit of the model fit from the SData 4 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 5. Population and parameter estimates from the model fit from the SData 4 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SData 5
+```{r, echo = FALSE, fig.cap = "Figure 16. Population trajectory and fit of the model fit to the absolute abundance from the SData 5 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 17. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SData 5 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 18. Fit of the model fit from the SData 5 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 6. Population and parameter estimates from the model fit from the SData 5 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SData 6
+```{r, echo = FALSE, fig.cap = "Figure 19. Population trajectory and fit of the model fit to the absolute abundance from the SData 6 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 20. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SData 6 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 21. Fit of the model fit from the SData 6 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 7. Population and parameter estimates from the model fit from the SData 6 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SCatch 1
+```{r, echo = FALSE, fig.cap = "Figure 22. Population trajectory and fit of the model fit to the absolute abundance from the SCatch 1 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 23. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SCatch 1 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 24. Fit of the model fit from the SCatch 1 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 8. Population and parameter estimates from the model fit from the SCatch 1 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SCatch 2
+```{r, echo = FALSE, fig.cap = "Figure 25. Population trajectory and fit of the model fit to the absolute abundance from the SCatch 2 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 26. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SCatch 2 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 27. Fit of the model fit from the SCatch 2 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 9. Population and parameter estimates from the model fit from the SCatch 2 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SCatch 3
+```{r, echo = FALSE, fig.cap = "Figure 28. Population trajectory and fit of the model fit to the absolute abundance from the SCatch 3 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 29. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SCatch 3 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 30. Fit of the model fit from the SCatch 3 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 10. Population and parameter estimates from the model fit from the SCatch 3 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SCatch 4
+```{r, echo = FALSE, fig.cap = "Figure 31. Population trajectory and fit of the model fit to the absolute abundance from the SCatch 4 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 32. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SCatch 4 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 33. Fit of the model fit from the SCatch 4 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 11. Population and parameter estimates from the model fit from the SCatch 4 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# SCatch 5
+```{r, echo = FALSE, fig.cap = "Figure 34. Population trajectory and fit of the model fit to the absolute abundance from the SCatch 5 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 35. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the SCatch 5 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 36. Fit of the model fit from the SCatch 5 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 12. Population and parameter estimates from the model fit from the SCatch 5 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# GC 1
+```{r, echo = FALSE, fig.cap = "Figure 37. Population trajectory and fit of the model fit to the absolute abundance from the GC 1 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 38. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the GC 1 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 39. Fit of the model fit from the GC 1 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 13. Population and parameter estimates from the model fit from the GC 1 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# GC 2
+```{r, echo = FALSE, fig.cap = "Figure 40. Population trajectory and fit of the model fit to the absolute abundance from the GC 2 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 41. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the GC 2 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 42. Fit of the model fit from the GC 2 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 14. Population and parameter estimates from the model fit from the GC 2 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# MSYR 1
+```{r, echo = FALSE, fig.cap = "Figure 43. Population trajectory and fit of the model fit to the absolute abundance from the MSYR 1 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 44. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the MSYR 1 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 45. Fit of the model fit from the MSYR 1 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 15. Population and parameter estimates from the model fit from the MSYR 1 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
+
+# MSYR 2
+```{r, echo = FALSE, fig.cap = "Figure 46. Population trajectory and fit of the model fit to the absolute abundance from the MSYR 2 case scenario. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the abundance estimate, grey error bars to the 95% credible interval of the posterior predicted abundance estimate, and the dashed line to the catch series."}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 47. Posterior probability distributions of model parameters and derived quantities from the model fit to the absolute abundance from the MSYR 2 case scenario. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo = FALSE, fig.cap = "Figure 48. Fit of the model fit from the MSYR 2 scenario to indices of abundance. The solid line corresponds to the posterior median, light grey to the 95% credible interval, grey to the 90% credible interval, black error bars to the 95% confidence interval of the relative abundance estimates, and grey error bars to the 95% credible interval of the posterior predicted relative abundance. "}
+knitr::include_graphics(figure_paths[fig_ind])
+fig_ind <- fig_ind + 1
+```
+
+$$$newpage
+
+```{r, echo=FALSE}
+table <- as.data.frame(read.csv(file = paste0(file_names[table_ind], "_zerbini_table_5.csv")))
+colnames(table) <- c("X", "Parameter", "Mean", "Median", "2.5% CI", "5% CI", "95% CI", "97.5% CI", "Unique")
+knitr::kable(table[,2:8], caption = "Table 16. Population and parameter estimates from the model fit from the MSYR 2 scenario.")
+table_ind <- table_ind + 1
+```
+
+$$$newpage
