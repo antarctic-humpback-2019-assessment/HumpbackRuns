@@ -35,7 +35,7 @@ for(i in 1:2){
                                         make_prior(rnorm, 1.71, 0.073)),
                                       target.Yr = 2008,
                                       num.haplotypes = 0,
-                                      output.Yrs = c(2012, 2006, 2019),
+                                      output.Yrs = c(2012, 2006, 2019, 2030),
                                       abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                       rel.abundance = rel_abund_ref,
                                       rel.abundance.key = TRUE, # Indices of abundance
@@ -83,7 +83,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2012,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2008, 2006, 2019),
+                                    output.Yrs = c(2008, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -126,7 +126,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = FALSE, # No ndices of abundance
@@ -171,7 +171,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund3,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -214,7 +214,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = Rel.Abundance.Pavanato,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -258,7 +258,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = Rel.Abundance.Wedekin,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -268,7 +268,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches.Reorg,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 10 * 1e-16, progress_bar = TRUE),
+                                    control = sir_control(threshold = 10 * 1e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_sdata_5[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -301,7 +301,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = Rel.Abundance.Branch,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -373,7 +373,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -419,7 +419,7 @@ for(i in 1:2){
                                       make_prior(1)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -462,7 +462,7 @@ for(i in 1:2){
                                       make_prior(1)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -489,9 +489,9 @@ save(sir_catch_2, file = paste0(file_name, ".Rdata"))
 
 # Scatch 3
 file_name <- "Scatch 3/Scatch 3"
-sir_catch_2 <- list()
+sir_catch_3 <- list()
 for(i in 1:2){
-  sir_catch_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
+  sir_catch_3[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
                                     n_resamples = 10000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
@@ -503,7 +503,7 @@ for(i in 1:2){
                                       make_prior(1)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -513,19 +513,19 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches.Reorg,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 10 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 10 * 1e-24, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
-resample_summary_reference <- summary_sir(sir_catch_2[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
-trajectory_summary_reference <- summary_sir(sir_catch_2[[1]]$resamples_trajectories, object = "Trajectory_Summary", file_name = file_name)
+resample_summary_reference <- summary_sir(sir_catch_3[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
+trajectory_summary_reference <- summary_sir(sir_catch_3[[1]]$resamples_trajectories, object = "Trajectory_Summary", file_name = file_name)
 
 file_name <- "Scatch 3/Scatch 3"
-plot_trajectory(sir_catch_2[[1]], Reference = sir_reference[[1]],  file_name = file_name)
-plot_density(SIR = list(sir_reference[[1]], sir_catch_2[[1]]), priors = list(sir_reference[[2]], sir_catch_2[[2]]),  file_name = file_name,  lower = c(NA, 22000, 0, NA, 16000, NA, NA, NA, 0.35, 0.6), upper = c(NA, 40000, 2000, NA, 23000, NA, .05, NA, NA, NA))
-plot_ioa(sir_catch_2[[1]],  file_name = file_name, ioa_names = c("Branch", "Pavanto"))
-zerbini_table(sir_catch_2[[1]],  file_name = file_name)         
+plot_trajectory(sir_catch_3[[1]], Reference = sir_reference[[1]],  file_name = file_name)
+plot_density(SIR = list(sir_reference[[1]], sir_catch_3[[1]]), priors = list(sir_reference[[2]], sir_catch_3[[2]]),  file_name = file_name,  lower = c(NA, 22000, 0, NA, 16000, NA, NA, NA, 0.35, 0.6), upper = c(NA, 40000, 2000, NA, 23000, NA, .05, NA, NA, NA))
+plot_ioa(sir_catch_3[[1]],  file_name = file_name, ioa_names = c("Branch", "Pavanto"))
+zerbini_table(sir_catch_3[[1]],  file_name = file_name)         
 
-save(sir_catch_2, file = paste0(file_name, ".Rdata"))
+save(sir_catch_3, file = paste0(file_name, ".Rdata"))
 
 
 
@@ -543,7 +543,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -553,7 +553,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 10 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 10 * 1e-24, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_4[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -571,9 +571,9 @@ save(sir_catch_4, file = paste0(file_name, ".Rdata"))
 # Scatch 5 - Liberal
 Core.1901.1930 <- Core.Catches2[Core.Catches2$Year %in% c(1830:1930), ]
 Core.1931.after <- Core.Catches2[Core.Catches2$Year > 1931, ]
-Core.Catches.Reorg <- as.matrix(merge(Core.1901.1930, Core.1931.after, by = "Year", all = TRUE))
-Core.Catches.Reorg[which(is.na(Core.Catches.Reorg))] = 0
-Core.Catches.Reorg <- as.data.frame(Core.Catches.Reorg)
+Core.Catches.Reorg2 <- as.matrix(merge(Core.1901.1930, Core.1931.after, by = "Year", all = TRUE))
+Core.Catches.Reorg2[which(is.na(Core.Catches.Reorg2))] = 0
+Core.Catches.Reorg2 <- as.data.frame(Core.Catches.Reorg2)
 
 file_name <- "Scatch 5/Scatch 5"
 sir_catch_5 <- list()
@@ -583,12 +583,13 @@ for(i in 1:2){
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
+                                      make_prior(rbest, 0.139, 0.3),
                                       make_prior(rnorm, 1.0185 , 0.028)),
                                     premodern_catch_multipliers = make_multiplier_list(
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -596,9 +597,9 @@ for(i in 1:2){
                                     count.data.key = FALSE,
                                     growth.rate.obs = c(0.074, 0.033, FALSE), # Do not include growth rate
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
-                                    catch.data = Core.Catches.Reorg,
+                                    catch.data = Core.Catches.Reorg2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 10 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 10 * 1e-24, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_5[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -638,7 +639,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -687,7 +688,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -734,7 +735,7 @@ for(i in 1:2){
                                       make_prior(rnorm, 1.71, 0.073)),
                                     target.Yr = 2008,
                                     num.haplotypes = 0,
-                                    output.Yrs = c(2012, 2006, 2019),
+                                    output.Yrs = c(2012, 2006, 2019, 2030),
                                     abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                     rel.abundance = rel_abund_ref,
                                     rel.abundance.key = TRUE, # Indices of abundance
@@ -778,7 +779,7 @@ for(i in 1:2){
                                    make_prior(rnorm, 1.71, 0.073)),
                                  target.Yr = 2008,
                                  num.haplotypes = 54,
-                                 output.Yrs = c(2012, 2006, 2019),
+                                 output.Yrs = c(2012, 2006, 2019, 2030),
                                  abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                  rel.abundance = rel_abund_ref,
                                  rel.abundance.key = TRUE, # Indices of abundance
@@ -821,7 +822,7 @@ for(i in 1:2){
                                    make_prior(rnorm, 1.71, 0.073)),
                                  target.Yr = 2008,
                                  num.haplotypes = 5,
-                                 output.Yrs = c(2012, 2006, 2019),
+                                 output.Yrs = c(2012, 2006, 2019, 2030),
                                  abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                  rel.abundance = rel_abund_ref,
                                  rel.abundance.key = TRUE, # Indices of abundance
@@ -871,7 +872,7 @@ for(i in 1:2){
                                      make_prior(rnorm, 1.71, 0.073)),
                                    target.Yr = 2008,
                                    num.haplotypes = 0,
-                                   output.Yrs = c(2012, 2006, 2019),
+                                   output.Yrs = c(2012, 2006, 2019, 2030),
                                    abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                    rel.abundance = rel_abund_ref,
                                    rel.abundance.key = TRUE, # Indices of abundance
@@ -914,7 +915,7 @@ for(i in 1:2){
                                      make_prior(rnorm, 1.71, 0.073)),
                                    target.Yr = 2008,
                                    num.haplotypes = 0,
-                                   output.Yrs = c(2012, 2006, 2019),
+                                   output.Yrs = c(2012, 2006, 2019, 2030),
                                    abs.abundance = rbind(Abs.Abundance.2008, Abs.Abundance.2012),
                                    rel.abundance = rel_abund_ref,
                                    rel.abundance.key = TRUE, # Indices of abundance
