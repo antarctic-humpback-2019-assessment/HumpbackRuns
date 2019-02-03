@@ -13,3 +13,5 @@
 12_2018_Runs/GC 1/sir_gc1.RData
 *.RData
 12_2018_Runs/12_2018_Runs.zip
+*.7z
+.RDataTmp
