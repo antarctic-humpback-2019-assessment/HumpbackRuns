@@ -16,7 +16,6 @@ file_names <- c("Reference/Reference",
                 "SCatch 5/SCatch 5",
                 "SCatch 6/SCatch 6",
                 "SCatch 7/SCatch 7",
-                "SCatch 8/SCatch 8",
                 "GC 1/GC 1",
                 "GC 2/GC 2",
                 "MSYR 1/MSYR 1",
@@ -38,7 +37,6 @@ bayes_f <- bayes_factor(SIR = list(sir_reference[[1]],
                                    sir_catch_5[[1]],
                                    sir_catch_6[[1]],
                                    sir_catch_7[[1]],
-                                   sir_catch_8[[1]],
                                    sir_msyr_1[[1]],
                                    sir_msyr_2[[1]]))
 
@@ -51,12 +49,11 @@ new_mod <- weight_model(SIR = list(sir_reference[[1]],
                                    sir_catch_5[[1]],
                                    sir_catch_6[[1]],
                                    sir_catch_7[[1]],
-                                   sir_catch_8[[1]],
                                    sir_msyr_1[[1]],
                                    sir_msyr_2[[1]]), 
                         bayes_factor = bayes_f)
 
-bayes_vec <- round(c(bayes_f[1], bayes_f[2], NA, NA, NA, NA, NA, bayes_f[3], NA, NA, NA, bayes_f[4], bayes_f[5], bayes_f[6], bayes_f[7], bayes_f[8], NA, NA, bayes_f[9], bayes_f[10], NA), 2)
+bayes_vec <- round(c(bayes_f[1], bayes_f[2], NA, NA, NA, NA, NA, bayes_f[3], NA, NA, NA, bayes_f[4], bayes_f[5], bayes_f[6], bayes_f[7], NA, NA, bayes_f[8], bayes_f[9], NA), 2)
 
 
 # Compare All
@@ -77,13 +74,12 @@ compare_posteriors(
              sir_catch_5[[1]],
              sir_catch_6[[1]],
              sir_catch_7[[1]],
-             sir_catch_8[[1]],
              sir_gc_1[[1]],
              sir_gc_2[[1]],
              sir_msyr_1[[1]],
              sir_msyr_2[[1]],
              new_mod), 
-  model_names = c( "R", paste0("D ", 1:7), paste0("C ", 1:8), paste0("G ", 1:2), paste0("M ", 1:2), "MA"), 
+  model_names = c( "R", paste0("D ", 1:7), paste0("C ", 1:7), paste0("G ", 1:2), paste0("M ", 1:2), "MA"), 
   bayes_factor = bayes_vec,
   file_name = "Cross scenario comparison/global")
 
