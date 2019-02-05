@@ -211,7 +211,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.01 * 1e-25, progress_bar = TRUE),
+                                    control = sir_control(threshold = 2e-28, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_sdata_5[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -245,7 +245,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.1 * 1e-14, progress_bar = TRUE),
+                                    control = sir_control(threshold = 2e-14, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_sdata_6[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -307,7 +307,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 2e-24, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_sdata_7[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -344,7 +344,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = NULL,
-                                    control = sir_control(threshold = 0.001 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 1e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_1[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -378,7 +378,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = NULL,
-                                    control = sir_control(threshold = 0.001 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 1e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_2[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -410,7 +410,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.001 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 1e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_3[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -450,7 +450,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches.Reorg4,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.01 * 1e-22, progress_bar = TRUE),
+                                    control = sir_control(threshold = 2e-22, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_4[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -485,7 +485,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches3,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 2e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_5[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -519,7 +519,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Fringe.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 2e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_6[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -551,7 +551,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Overlap.Catches2,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 0.001 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 1e-23, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_catch_7[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -586,7 +586,7 @@ for(i in 1:2){
                                  growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                  catch.data = Core.Catches2,
                                  premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                 control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                 control = sir_control(threshold = 2e-25, progress_bar = TRUE),
                                  realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_gc_1[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -620,7 +620,7 @@ for(i in 1:2){
                                  growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                  catch.data = Core.Catches2,
                                  premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                 control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                 control = sir_control(threshold = 2e-25, progress_bar = TRUE),
                                  realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_gc_2[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -661,7 +661,7 @@ for(i in 1:2){
                                    growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                    catch.data = Core.Catches2,
                                    premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                   control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                   control = sir_control(threshold = 2e-24, progress_bar = TRUE),
                                    realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_msyr_1[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -702,7 +702,7 @@ for(i in 1:2){
                                    growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                    catch.data = Core.Catches2,
                                    premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                   control = sir_control(threshold = 0.01 * 1e-23, progress_bar = TRUE),
+                                   control = sir_control(threshold = 2e-24, progress_bar = TRUE),
                                    realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_msyr_2[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)

@@ -24,7 +24,7 @@ file_name <- "Reference/Reference"
 sir_reference <- list()
 for(i in 1:2){
   sir_reference[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                      n_resamples = 10000,
+                                      n_resamples = 1000,
                                       priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                                N_obs = make_prior(runif, 500, 40000)),
                                       catch_multipliers = make_multiplier_list(
@@ -45,7 +45,7 @@ for(i in 1:2){
                                       growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                       catch.data = Core.Catches.Reorg,
                                       premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                      control = sir_control(threshold = 10 * 1e-23, progress_bar = TRUE),
+                                      control = sir_control(threshold = 1e-25, progress_bar = TRUE),
                                       realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_reference[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -62,7 +62,7 @@ file_name <- "SData 1/SData 1"
 sir_sdata_1 <- list()
 for(i in 1:2){
   sir_sdata_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -83,7 +83,7 @@ for(i in 1:2){
                                     growth.rate.Yrs = c(1995, 1996, 1997, 1998),
                                     catch.data = Core.Catches.Reorg,
                                     premodern_catch_data = merge(PreModern.Catch.Min, PreModern.Catch.Max, by = "Year", all = T),
-                                    control = sir_control(threshold = 10 * 1e-23, progress_bar = TRUE),
+                                    control = sir_control(threshold = 1e-25, progress_bar = TRUE),
                                     realized_prior = ifelse(i == 1, "FALSE", "TRUE"))
 }
 resample_summary_reference <- summary_sir(sir_sdata_1[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
@@ -98,7 +98,7 @@ file_name <- "SData 2/SData 2"
 sir_sdata_2 <- list()
 for(i in 1:2){
   sir_sdata_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -137,7 +137,7 @@ file_name <- "SData 3/SData 3"
 sir_sdata_3 <- list()
 for(i in 1:2){
   sir_sdata_3[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -173,7 +173,7 @@ file_name <- "SData 4/SData 4"
 sir_sdata_4 <- list()
 for(i in 1:2){
   sir_sdata_4[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -210,7 +210,7 @@ file_name <- "SData 5/SData 5"
 sir_sdata_5 <- list()
 for(i in 1:2){
   sir_sdata_5[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -246,7 +246,7 @@ file_name <- "SData 6/SData 6"
 sir_sdata_6 <- list()
 for(i in 1:2){
   sir_sdata_6[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -310,7 +310,7 @@ file_name <- "SData 7/SData 7"
 sir_sdata_7 <- list()
 for(i in 1:2){
   sir_sdata_7[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(rbeta, alpha, beta),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -349,7 +349,7 @@ file_name <- "SCatch 1/SCatch 1"
 sir_catch_1 <- list()
 for(i in 1:2){
   sir_catch_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -385,7 +385,7 @@ file_name <- "SCatch 2/SCatch 2"
 sir_catch_2 <- list()
 for(i in 1:2){
   sir_catch_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -419,7 +419,7 @@ file_name <- "Scatch 3/Scatch 3"
 sir_catch_3 <- list()
 for(i in 1:2){
   sir_catch_3[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -454,7 +454,7 @@ file_name <- "Scatch 4/Scatch 4"
 sir_catch_4 <- list()
 for(i in 1:2){
   sir_catch_4[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -492,7 +492,7 @@ file_name <- "Scatch 5/Scatch 5"
 sir_catch_5 <- list()
 for(i in 1:2){
   sir_catch_5[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -534,7 +534,7 @@ file_name <- "Scatch 6/Scatch 6"
 sir_catch_6 <- list()
 for(i in 1:2){
   sir_catch_6[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -576,7 +576,7 @@ file_name <- "Scatch 7/Scatch 7"
 sir_catch_7 <- list()
 for(i in 1:2){
   sir_catch_7[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -616,7 +616,7 @@ file_name <- "Scatch 8/Scatch 8"
 sir_catch_8 <- list()
 for(i in 1:2){
   sir_catch_8[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                    n_resamples = 10000,
+                                    n_resamples = 1000,
                                     priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                              N_obs = make_prior(runif, 500, 40000)),
                                     catch_multipliers = make_multiplier_list(
@@ -653,7 +653,7 @@ file_name <- "GC 1/GC 1"
 sir_gc_1 <- list()
 for(i in 1:2){
   sir_gc_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                 n_resamples = 10000,
+                                 n_resamples = 1000,
                                  priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                           N_obs = make_prior(runif, 500, 40000)),
                                  catch_multipliers = make_multiplier_list(
@@ -689,7 +689,7 @@ file_name <- "GC 2/GC 2"
 sir_gc_2 <- list()
 for(i in 1:2){
   sir_gc_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                 n_resamples = 10000,
+                                 n_resamples = 1000,
                                  priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                           N_obs = make_prior(runif, 500, 40000)),
                                  catch_multipliers = make_multiplier_list(
@@ -731,7 +731,7 @@ file_name <- "MSYR 1/MSYR 1"
 sir_msyr_1 <- list()
 for(i in 1:2){
   sir_msyr_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                   n_resamples = 10000,
+                                   n_resamples = 1000,
                                    priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                             N_obs = make_prior(runif, 500, 40000),
                                                             z = make_prior(z70)),
@@ -774,7 +774,7 @@ file_name <- "MSYR 2/MSYR 2"
 sir_msyr_2 <- list()
 for(i in 1:2){
   sir_msyr_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
-                                   n_resamples = 10000,
+                                   n_resamples = 1000,
                                    priors = make_prior_list(r_max = make_prior(runif, 0, 0.118),
                                                             N_obs = make_prior(runif, 500, 40000),
                                                             z = make_prior(z80)),
