@@ -19,7 +19,8 @@ file_names <- c("Reference/Reference",
                 "GC 1/GC 1",
                 "GC 2/GC 2",
                 "MSYR 1/MSYR 1",
-                "MSYR 2/MSYR 2")
+                "MSYR 2/MSYR 2",
+                "Model average/model_average")
 
 for(i in 1:length(file_names)){
   load(file = paste0("Model runs/",file_names[i], ".Rdata"))
@@ -81,7 +82,8 @@ compare_posteriors(
              new_mod), 
   model_names = c( "R", paste0("D ", 1:7), paste0("C ", 1:7), paste0("G ", 1:2), paste0("M ", 1:2), "MA"), 
   bayes_factor = bayes_vec,
-  file_name = "Cross scenario comparison/Figure_3_")
+  file_name = "Cross scenario comparison/Figure_3_",
+  years = c(2008, 2019))
 
 
 file_name <- "Model runs/Model average/model_average"
