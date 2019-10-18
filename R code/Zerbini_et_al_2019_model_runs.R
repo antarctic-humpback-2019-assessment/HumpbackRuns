@@ -11,7 +11,7 @@ Rel.Abundance.Pavanato$Index <- 1
 ################################################################################
 # Reference
 ################################################################################
-file_name <- "Reference/Reference"
+file_name <- "Model runs/Reference/Reference"
 sir_reference <- list()
 for(i in 1:2){
   sir_reference[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -47,7 +47,7 @@ save(sir_reference, file = paste0(file_name, ".Rdata"))
 # SDATA Runs
 ################################################################################
 # SData 1
-file_name <- "SData 1/SData 1"
+file_name <- "Model runs/SData 1/SData 1"
 sir_sdata_1 <- list()
 for(i in 1:2){
   sir_sdata_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -81,7 +81,7 @@ save(sir_sdata_1, file = paste0(file_name, ".Rdata"))
 
 
 # SData 2
-file_name <- "SData 2/SData 2"
+file_name <- "Model runs/SData 2/SData 2"
 sir_sdata_2 <- list()
 for(i in 1:2){
   sir_sdata_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -118,7 +118,7 @@ save(sir_sdata_2, file = paste0(file_name, ".Rdata"))
 Rel.Abundance.Wedekin$Index <- 2
 rel_abund3 <- rbind(Rel.Abundance.Branch, Rel.Abundance.Wedekin)
 Rel.Abundance.Wedekin$Index <- 1
-file_name <- "SData 3/SData 3"
+file_name <- "Model runs/SData 3/SData 3"
 sir_sdata_3 <- list()
 for(i in 1:2){
   sir_sdata_3[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -152,7 +152,7 @@ save(sir_sdata_3, file = paste0(file_name, ".Rdata"))
 
 
 # SData 4
-file_name <- "SData 4/SData 4"
+file_name <- "Model runs/SData 4/SData 4"
 sir_sdata_4 <- list()
 for(i in 1:2){
   sir_sdata_4[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -187,7 +187,7 @@ save(sir_sdata_4, file = paste0(file_name, ".Rdata"))
 
 # SData 5
 Rel.Abundance.Wedekin$Index <- 1
-file_name <- "SData 5/SData 5"
+file_name <- "Model runs/SData 5/SData 5"
 sir_sdata_5 <- list()
 for(i in 1:2){
   sir_sdata_5[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -221,7 +221,7 @@ save(sir_sdata_5, file = paste0(file_name, ".Rdata"))
 
 # SData 6
 Rel.Abundance.Branch$Index <- 1
-file_name <- "SData 6/SData 6"
+file_name <- "Model runs/SData 6/SData 6"
 sir_sdata_6 <- list()
 for(i in 1:2){
   sir_sdata_6[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -283,7 +283,7 @@ qbeta( 0.975, alpha, beta)#upper
 qbeta( 0.025, alpha, beta) #lower
 
 
-file_name <- "SData 7/SData 7"
+file_name <- "Model runs/SData 7/SData 7"
 sir_sdata_7 <- list()
 for(i in 1:2){
   sir_sdata_7[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -320,7 +320,7 @@ save(sir_sdata_7, file = paste0(file_name, ".Rdata"))
 # Scatch Runs
 ################################################################################
 # Scatch 1
-file_name <- "SCatch 1/SCatch 1"
+file_name <- "Model runs/SCatch 1/SCatch 1"
 sir_catch_1 <- list()
 for(i in 1:2){
   sir_catch_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -354,7 +354,7 @@ save(sir_catch_1, file = paste0(file_name, ".Rdata"))
 
 
 # Scatch 2
-file_name <- "SCatch 2/SCatch 2"
+file_name <- "Model runs/SCatch 2/SCatch 2"
 sir_catch_2 <- list()
 for(i in 1:2){
   sir_catch_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -386,7 +386,7 @@ save(sir_catch_2, file = paste0(file_name, ".Rdata"))
 
 
 # Scatch 3
-file_name <- "Scatch 3/Scatch 3"
+file_name <- "Model runs/Scatch 3/Scatch 3"
 sir_catch_3 <- list()
 for(i in 1:2){
   sir_catch_3[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -425,7 +425,7 @@ Core.Catches.Reorg4 <- as.matrix(merge(Core.1901.1920, Core.1920.after, by = "Ye
 Core.Catches.Reorg4[which(is.na(Core.Catches.Reorg4))] = 0
 Core.Catches.Reorg4 <- as.data.frame(Core.Catches.Reorg4)
 
-file_name <- "Scatch 4/Scatch 4"
+file_name <- "Model runs/Scatch 4/Scatch 4"
 sir_catch_4 <- list()
 for(i in 1:2){
   sir_catch_4[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -461,7 +461,7 @@ save(sir_catch_4, file = paste0(file_name, ".Rdata"))
 Core.Catches3 <- Core.Catches2
 Core.Catches3$Catch <- Core.Catches3$Catch + Falkland.Catches2$Catch
 
-file_name <- "Scatch 5/Scatch 5"
+file_name <- "Model runs/Scatch 5/Scatch 5"
 sir_catch_5 <- list()
 for(i in 1:2){
   sir_catch_5[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -495,7 +495,7 @@ save(sir_catch_5, file = paste0(file_name, ".Rdata"))
 
 
 # Scatch 6
-file_name <- "Scatch 6/Scatch 6"
+file_name <- "Model runs/Scatch 6/Scatch 6"
 sir_catch_6 <- list()
 for(i in 1:2){
   sir_catch_6[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -527,7 +527,7 @@ save(sir_catch_6, file = paste0(file_name, ".Rdata"))
 
 
 # Scatch 7
-file_name <- "Scatch 7/Scatch 7"
+file_name <- "Model runs/Scatch 7/Scatch 7"
 sir_catch_7 <- list()
 for(i in 1:2){
   sir_catch_7[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -562,7 +562,7 @@ save(sir_catch_7, file = paste0(file_name, ".Rdata"))
 # GC Runs
 ################################################################################
 # GC 1
-file_name <- "GC 1/GC 1"
+file_name <- "Model runs/GC 1/GC 1"
 sir_gc_1 <- list()
 for(i in 1:2){
   sir_gc_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -596,7 +596,7 @@ save(sir_gc_1, file = paste0(file_name, ".Rdata"))
 
 
 # GC 2
-file_name <- "GC 2/GC 2"
+file_name <- "Model runs/GC 2/GC 2"
 sir_gc_2 <- list()
 for(i in 1:2){
   sir_gc_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -636,7 +636,7 @@ z70 <- uniroot(NmsyKz,NmsyK=0.7,lower=1,upper=100)$root
 z80 <- uniroot(NmsyKz,NmsyK=0.8,lower=1,upper=100)$root
 
 # MSYR 1
-file_name <- "MSYR 1/MSYR 1"
+file_name <- "Model runs/MSYR 1/MSYR 1"
 sir_msyr_1 <- list()
 for(i in 1:2){
   sir_msyr_1[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),
@@ -666,7 +666,7 @@ for(i in 1:2){
 resample_summary_reference <- summary_sir(sir_msyr_1[[1]]$resamples_output, object = "Resample_Summary", file_name = file_name)
 trajectory_summary_reference <- summary_sir(sir_msyr_1[[1]]$resamples_trajectories, object = "Trajectory_Summary", file_name = file_name)
 
-file_name <- "MSYR 1/MSYR 1"
+file_name <- "Model runs/MSYR 1/MSYR 1"
 plot_trajectory(sir_msyr_1[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_msyr_1[[1]]), priors = list(sir_reference[[2]], sir_msyr_1[[2]]),  file_name = file_name,  lower = c(NA, 22000, 0, NA, 16000, NA, NA, NA, 0.35, 0.6), upper = c(NA, 40000, 2000, NA, 23000, NA, .05, NA, NA, NA))
 plot_ioa(sir_msyr_1[[1]],  file_name = file_name, ioa_names = c("Branch", "Pavanto"))
@@ -677,7 +677,7 @@ save(sir_msyr_1, file = paste0(file_name, ".Rdata"))
 
 
 # MSYR 2
-file_name <- "MSYR 2/MSYR 2"
+file_name <- "Model runs/MSYR 2/MSYR 2"
 sir_msyr_2 <- list()
 for(i in 1:2){
   sir_msyr_2[[i]] <-  HUMPBACK.SIR(file_name = paste0(file_name, c("","prior")[i]),

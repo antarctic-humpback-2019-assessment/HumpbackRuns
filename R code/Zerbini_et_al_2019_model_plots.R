@@ -1,6 +1,6 @@
 library(HumpbackSIR)
 
-file_name <- "Models/Reference/Reference"
+file_name <- "Model runs/Reference/Reference_z"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_reference[[1]],  file_name = file_name)
 plot_trajectory(sir_reference[[2]],  file_name = paste0(file_name, "prior"))
@@ -9,7 +9,7 @@ plot_ioa(sir_reference[[1]],  file_name = file_name, ioa_names = c("FG", "BG1") 
 zerbini_table(sir_reference[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 1/SData 1"
+file_name <- "Model runs/SData 1/SData 1"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(SIR = sir_sdata_1[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_1[[1]]), priors = list(sir_reference[[2]], sir_sdata_1[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -17,14 +17,14 @@ plot_ioa(SIR = sir_sdata_1[[1]],  file_name = file_name, ioa_names = c("FG", "BG
 zerbini_table(sir_sdata_1[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 2/SData 2"
+file_name <- "Model runs/SData 2/SData 2"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_sdata_2[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_2[[1]]), priors = list(sir_reference[[2]], sir_sdata_2[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
 zerbini_table(sir_sdata_2[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 3/SData 3"
+file_name <- "Model runs/SData 3/SData 3"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_sdata_3[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_3[[1]]), priors = list(sir_reference[[2]], sir_sdata_3[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -32,7 +32,7 @@ plot_ioa(sir_sdata_3[[1]],  file_name = file_name, ioa_names = c("FG", "BG2"))
 zerbini_table(sir_sdata_3[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 4/SData 4"
+file_name <- "Model runs/SData 4/SData 4"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_sdata_4[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_4[[1]]), priors = list(sir_reference[[2]], sir_sdata_4[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -40,7 +40,7 @@ plot_ioa(sir_sdata_4[[1]],  file_name = file_name, ioa_names = c("BG1"))
 zerbini_table(sir_sdata_4[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 5/SData 5"
+file_name <- "Model runs/SData 5/SData 5"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_sdata_5[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_5[[1]]), priors = list(sir_reference[[2]], sir_sdata_5[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -48,7 +48,7 @@ plot_ioa(sir_sdata_5[[1]],  file_name = file_name, ioa_names = c("BG2"))
 zerbini_table(sir_sdata_5[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 6/SData 6"
+file_name <- "Model runs/SData 6/SData 6"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_sdata_6[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_6[[1]]), priors = list(sir_reference[[2]], sir_sdata_6[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -56,7 +56,7 @@ plot_ioa(sir_sdata_6[[1]],  file_name = file_name, ioa_names = c("FG"))
 zerbini_table(sir_sdata_6[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SData 7/SData 7"
+file_name <- "Model runs/SData 7/SData 7"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_sdata_7[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_sdata_7[[1]]), priors = list(sir_reference[[2]], sir_sdata_7[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -64,7 +64,7 @@ plot_ioa(sir_sdata_7[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_sdata_7[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SCatch 1/SCatch 1"
+file_name <- "Model runs/SCatch 1/SCatch 1"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_1[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_1[[1]]), priors = list(sir_reference[[2]], sir_catch_1[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, 15000, NA, 20000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, .7, .8, 1, 1, 1))
@@ -72,7 +72,7 @@ plot_ioa(sir_catch_1[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_catch_1[[1]],  file_name = file_name)
 
 
-file_name <- "Models/SCatch 2/SCatch 2"
+file_name <- "Model runs/SCatch 2/SCatch 2"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_2[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_2[[1]]), priors = list(sir_reference[[2]], sir_catch_2[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, 15000, NA, 20000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, .7, .8, 1, 1, 1))
@@ -80,7 +80,7 @@ plot_ioa(sir_catch_2[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_catch_2[[1]],  file_name = file_name)
 
 
-file_name <- "Models/Scatch 3/Scatch 3"
+file_name <- "Model runs/Scatch 3/Scatch 3"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_3[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_3[[1]]), priors = list(sir_reference[[2]], sir_catch_3[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, 15000, NA, 20000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, .7, .8, 1, 1, 1))
@@ -88,7 +88,7 @@ plot_ioa(sir_catch_3[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_catch_3[[1]],  file_name = file_name)
 
 
-file_name <- "Models/Scatch 4/Scatch 4"
+file_name <- "Model runs/Scatch 4/Scatch 4"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_4[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_4[[1]]), priors = list(sir_reference[[2]], sir_catch_4[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, 30000, NA,  0.06, NA, NA, NA, 1, 1))
@@ -97,7 +97,7 @@ zerbini_table(sir_catch_4[[1]],  file_name = file_name)
 
 
 ##########################################
-file_name <- "Models/Scatch 5/Scatch 5"
+file_name <- "Model runs/Scatch 5/Scatch 5"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_5[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_5[[1]]), priors = list(sir_reference[[2]], sir_catch_5[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -105,7 +105,7 @@ plot_ioa(sir_catch_5[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_catch_5[[1]],  file_name = file_name)
 
 
-file_name <- "Models/Scatch 6/Scatch 6"
+file_name <- "Model runs/Scatch 6/Scatch 6"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_6[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_6[[1]]), priors = list(sir_reference[[2]], sir_catch_6[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -114,7 +114,7 @@ zerbini_table(sir_catch_6[[1]],  file_name = file_name)
 
 
 
-file_name <- "Models/Scatch 7/Scatch 7"
+file_name <- "Model runs/Scatch 7/Scatch 7"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_catch_7[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_catch_7[[1]]), priors = list(sir_reference[[2]], sir_catch_7[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, NA, NA, 20000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -123,7 +123,7 @@ zerbini_table(sir_catch_7[[1]],  file_name = file_name)
 
 
 
-file_name <- "Models/GC 1/GC 1"
+file_name <- "Model runs/GC 1/GC 1"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_gc_1[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_gc_1[[1]]), priors = list(sir_reference[[2]], sir_gc_1[[2]]),  file_name = file_name, lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -132,7 +132,7 @@ zerbini_table(sir_gc_1[[1]],  file_name = file_name)
 
 
 
-file_name <- "Models/GC 2/GC 2"
+file_name <- "Model runs/GC 2/GC 2"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_gc_2[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_gc_2[[1]]), priors = list(sir_reference[[2]], sir_gc_2[[2]]),  file_name = file_name,  lower = c(NA, NA, NA, NA, NA, 15000, NA, 24000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -140,7 +140,7 @@ plot_ioa(sir_gc_2[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_gc_2[[1]],  file_name = file_name)
 
 
-file_name <- "Models/MSYR 1/MSYR 1"
+file_name <- "Model runs/MSYR 1/MSYR 1"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_msyr_1[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_msyr_1[[1]]), priors = list(sir_reference[[2]], sir_msyr_1[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, NA, NA, 21000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
@@ -148,7 +148,7 @@ plot_ioa(sir_msyr_1[[1]],  file_name = file_name, ioa_names = c("FG", "BG1"))
 zerbini_table(sir_msyr_1[[1]],  file_name = file_name)
 
 
-file_name <- "Models/MSYR 2/MSYR 2"
+file_name <- "Model runs/MSYR 2/MSYR 2"
 load(file = paste0(file_name, ".Rdata"))
 plot_trajectory(sir_msyr_2[[1]], Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], sir_msyr_2[[1]]), priors = list(sir_reference[[2]], sir_msyr_2[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, NA, NA, 21000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))

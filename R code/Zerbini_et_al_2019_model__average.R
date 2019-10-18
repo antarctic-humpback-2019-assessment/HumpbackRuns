@@ -1,6 +1,6 @@
 library(HumpbackSIR)
 
-
+# Load all the models
 file_names <- c("Reference/Reference",
                 "SData 1/SData 1",
                 "SData 2/SData 2",
@@ -29,8 +29,9 @@ for(i in 1:length(file_names)){
                 
 
 #############################################################
-#### Comparison stuff
+#### Model averaging
 #############################################################
+# Get bayes factor for models with comparable likelihoods
 bayes_f <- bayes_factor(SIR = list(sir_reference[[1]], 
                                    sir_sdata_1[[1]], 
                                    sir_sdata_7[[1]], 
@@ -42,7 +43,7 @@ bayes_f <- bayes_factor(SIR = list(sir_reference[[1]],
                                    sir_msyr_2[[1]]))
 
 
-
+# Create a new model based on bayes factors
 new_mod <- weight_model(SIR = list(sir_reference[[1]], 
                                    sir_sdata_1[[1]], 
                                    sir_sdata_7[[1]], 
@@ -54,10 +55,11 @@ new_mod <- weight_model(SIR = list(sir_reference[[1]],
                                    sir_msyr_2[[1]]), 
                         bayes_factor = bayes_f)
 
+# For plotting make a vector of bayes factors, set NA for models that cant be compared (different likelihood)
 bayes_vec <- round(c(bayes_f[1], bayes_f[2], NA, NA, NA, NA, NA, bayes_f[3], NA, NA, NA, bayes_f[4], bayes_f[5], bayes_f[6], bayes_f[7], NA, NA, bayes_f[8], bayes_f[9], NA), 2)
 
 
-# Compare All
+# Compare Aposteriors of all
 compare_posteriors(
   reference_sir = TRUE, 
   SIR = list(sir_reference[[1]],
@@ -85,7 +87,7 @@ compare_posteriors(
   file_name = "Cross scenario comparison/Figure_3_",
   years = c(2008, 2019))
 
-
+# Plot and get parameter values from Model Average
 file_name <- "Model runs/Model average/model_average"
 plot_trajectory(new_mod, Reference = sir_reference[[1]],  file_name = file_name)
 plot_density(SIR = list(sir_reference[[1]], new_mod), priors = list(sir_reference[[2]]),  file_name = file_name,  lower = c(NA, 20000, NA, NA, NA, 15000, NA, 21000, NA, NA, NA, NA, 0.5, 0.85), upper = c(NA, NA, 2000, NA, 20500, NA, NA, NA,  0.06, NA, NA, NA, 1, 1))
